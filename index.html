@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  </head>
+  <body>
+    <h1>KATA Bérszámoló külföldi kifizetővel</h1>
+    <fieldset>
+      <label for="bevetel">Bevétel</label>
+      <input type="number" name="bevetel" id="bevetel" />
+      <label for="levonasok">Levonások</label>
+      <input type="number" name="levonasok" id="levonasok" />
+    </fieldset>
+    <div id="app"></div>
+    <table>
+      <thead>
+        <tr>
+          <td></td>
+          <th>Fizetés</th>
+          <th>Ennyi hónapig</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Teljes</th>
+          <td id="teljes-fizetes"></td>
+          <td id="teljes-honap"></td>
+        </tr>
+        <tr>
+          <th>Büntetőadóval</th>
+          <td id="bunti-fizetes"></td>
+          <td id="bunti-honap"></td>
+        </tr>
+        <tr>
+          <th>Átlag</th>
+          <td id="atlag-fizetes"></td>
+          <td>12</td>
+        </tr>
+      </tbody>
+    </table>
+    <script src="script.js"></script>
+  </body>
+</html>
