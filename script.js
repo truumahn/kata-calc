@@ -11,30 +11,28 @@ let atlagFizu = teljesFizu;
 init();
 document.querySelector('#bevetel').onkeyup = function () {
   fizu = this.value;
-  setFizu(fizu, levonasok);
   updateTableData();
 };
 
 document.querySelector('#levonasok').onkeyup = function () {
   levonasok = this.value;
-  setFizu(fizu, levonasok);
   updateTableData();
 };
 
-function setFizu(fizu, levonas) {
+function updateFizu() {
   teljesFizuHonap = limit / fizu > 12 ? teljesFizuHonap : limit / fizu;
-  console.log(teljesFizuHonap);
   buntiFizuHonap = 12 - teljesFizuHonap;
-  teljesFizu = fizu - levonas;
+  teljesFizu = fizu - levonasok;
   atlagFizu = teljesFizu;
   if (fizu > limit / 12) {
     const bunti = (12 * fizu - limit) * 0.7142;
-    buntiFizu = (bunti / buntiFizuHonap).toFixed(0) - levonas;
-    atlagFizu = (limit + bunti) / 12 - levonas;
+    buntiFizu = (bunti / buntiFizuHonap).toFixed(0) - levonasok;
+    atlagFizu = (limit + bunti) / 12 - levonasok;
   }
 }
 
 function updateTableData() {
+  updateFizu();
   document.querySelector('#teljes-fizetes').innerText = teljesFizu;
   document.querySelector('#teljes-honap').innerText = teljesFizuHonap.toFixed(
     1

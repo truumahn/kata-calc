@@ -7,10 +7,10 @@
   <body>
     <h1>KATA Bérszámoló külföldi kifizetővel</h1>
     <fieldset>
-      <label for="bevetel">Bevétel</label>
+      <label for="bevetel">Havi Bevétel</label>
       <input type="number" name="bevetel" id="bevetel" />
-      <label for="levonasok">Levonások</label>
-      <input type="number" name="levonasok" id="levonasok" />
+      <label for="levonasok">Levonások (min. tételes adó, 50000)</label>
+      <input type="number" min="50000" name="levonasok" id="levonasok" />
     </fieldset>
     <div id="app"></div>
     <table>
