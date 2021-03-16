@@ -8,16 +8,21 @@ let buntiFizuHonap = 0.0;
 let buntiFizu = 0;
 let atlagFizu = teljesFizu;
 
-init();
-document.querySelector('#bevetel').onkeyup = function () {
+const bevetelInput = document.querySelector('#bevetel');
+const updateBevetel = function () {
   fizu = this.value;
   updateTableData();
 };
+bevetelInput.addEventListener('keyup', updateBevetel);
+bevetelInput.addEventListener('change', updateBevetel);
 
-document.querySelector('#levonasok').onkeyup = function () {
+const levonasokInput = document.querySelector('#levonasok');
+const updateLevonasok = function () {
   levonasok = this.value;
   updateTableData();
 };
+levonasokInput.addEventListener('keyup', updateLevonasok);
+levonasokInput.addEventListener('change', updateLevonasok);
 
 function updateFizu() {
   teljesFizuHonap = limit / fizu > 12 ? teljesFizuHonap : limit / fizu;
@@ -27,7 +32,7 @@ function updateFizu() {
   if (fizu > limit / 12) {
     const bunti = (12 * fizu - limit) * 0.7142;
     buntiFizu = (bunti / buntiFizuHonap).toFixed(0) - levonasok;
-    atlagFizu = (limit + bunti) / 12 - levonasok;
+    atlagFizu = ((limit + bunti) / 12).toFixed(0) - levonasok;
   }
 }
 
@@ -43,7 +48,9 @@ function updateTableData() {
 }
 
 function init() {
-  document.querySelector('#bevetel').value = fizu;
-  document.querySelector('#levonasok').value = levonasok;
+  bevetelInput.value = fizu;
+  levonasokInput.value = levonasok;
   updateTableData();
 }
+
+init();
