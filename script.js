@@ -30,9 +30,11 @@ function updateFizu() {
   teljesFizu = fizu - levonasok;
   atlagFizu = teljesFizu;
   if (fizu > limit / 12) {
-    const bunti = (12 * fizu - limit) * 0.7142;
-    buntiFizu = (bunti / buntiFizuHonap).toFixed(0) - levonasok;
-    atlagFizu = ((limit + bunti) / 12).toFixed(0) - levonasok;
+    let limitFelettiFizu = 12 * fizu - limit;
+    const bunti = limitFelettiFizu * 0.28568;
+    limitFelettiFizu = limitFelettiFizu - bunti;
+    buntiFizu = (limitFelettiFizu / buntiFizuHonap).toFixed(0) - levonasok;
+    atlagFizu = ((limit + limitFelettiFizu) / 12).toFixed(0) - levonasok;
   }
 }
 
